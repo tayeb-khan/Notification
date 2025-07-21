@@ -28,7 +28,9 @@ class PostController extends Controller
             'body' => $request->body
         ]);
 
-        event(new PostCreate($post));
+       // event(new PostCreate($post));
+
+        broadcast(new PostCreate($post))->toOthers();
 
         return back()->with('success', 'Post created successfully.');
     }

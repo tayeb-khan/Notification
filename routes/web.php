@@ -2,14 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/', function () {
+        return view('auth.login');
+    });
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-/*Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
-Route::post('/posts', [PostController::class, 'store'])->name('posts.store');*/
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', [\App\Http\Controllers\PostController::class, 'index'])->name('home');
+    Route::post('/posts', [\App\Http\Controllers\PostController::class, 'store'])->name('posts.store');
+});
