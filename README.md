@@ -32,16 +32,19 @@ Follow these steps to set up and run the project locally.
 4. Configure Environment
    Copy the example environment file and update it with your settings:
    cp .env.example .env
+5. Configure Environment
+   Copy the example environment file and update it with your settings:
+   cp .env.example .env
 
-5. Set Up the Database and make sure Mysql is running
+6. Set Up the Database and make sure Mysql is running
 
-6. Install Reverb:
+7. Install Reverb:
 > php artisan reverb:install
 
-6. Run migration and seed 
+8. Run migration and seed 
 > php artisan migrate --seed
 
-7. Start Redis Server
+9. Start Redis Server
 
 Install Redis (if not already installed):
 
@@ -70,11 +73,11 @@ Verify Redis:
 Expected output: PONG.
 
 
-8. Compile Assets
+10. Compile Assets
    Compile the front-end assets:
    npm run dev
 
-9. Start the Servers
+11. Start the Servers
 
 Laravel Development Server:
 >php artisan serve
@@ -91,7 +94,7 @@ Queue Worker (for broadcasting events):
 
 
 
-9. Test the Application
+## Test the Application
 
 Open http://localhost:8000 in two different browsers or incognito windows.
 Register or log in as a user, and for admin use these credentials:
